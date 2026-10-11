@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>このサイトについて | 求人の裏側</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/site-common.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="icon" href="images/logo-favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-favicon.png">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <!-- ロゴ画像(900×260の比率)。サイト名の文字の代わりに使う -->
+      <a class="site-header__logo" href="/"><img src="images/logo-wide.png" alt="求人の裏側" width="900" height="260"></a>
+      <!-- SP: ハンバーガーボタン(ヘッダー専用ボタンと同じスタイル)。PCでは非表示 -->
+      <button class="btn btn--header btn--sm site-header__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-js-menu-toggle>メニュー</button>
+      <!-- PC: ヘッダーに横並び / SP: 右から出て画面の半分まで表示 -->
+      <div class="site-header__menu" id="site-menu" data-js-menu>
+        <button class="btn btn--header btn--sm site-header__close" type="button" data-js-menu-close>閉じる</button>
+        <nav aria-label="メインメニュー">
+          <ul class="site-nav">
+            <li><a href="#">質問を探す</a></li>
+            <li><a href="#">カテゴリ</a></li>
+            <li><a href="#">このサイトについて</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--header btn--md site-header__ask" href="https://forms.gle/PzEfkHMVGTEvMDmk9" target="_blank">質問する</a>
+      </div>
+    </div>
+    <!-- SP: メニューの外側(押すと閉じる) -->
+    <div class="site-overlay" data-js-menu-overlay></div>
+  </header>
+
+  <div class="container layout">
+    <!-- メインコンテンツ -->
+    <main class="layout__main">
+      <h1>このサイトについて</h1>
+      <p class="text-block text-measure about-lead">「求人の裏側」は、求人・採用活動を行う採用ご担当者様、就職・転職活動をする求職者様に向けた、求人・転職活動の裏側事情や豆知識を発信していくコンテンツサイトです。<br><br>※個人が自分のペースで制作しているサイトなので、各所準備中のページもございます。ご了承ください。
+      </p>
+
+      <!-- 目次 -->
+      <nav class="toc" aria-labelledby="toc-title">
+        <p class="toc__title" id="toc-title">目次</p>
+        <ol class="toc__list">
+          <li><a href="#about-site">求人の裏側とは</a></li>
+          <li><a href="#features">このサイトでできること</a></li>
+          <li><a href="#manners">ご利用にあたってのお願い</a></li>
+          <li><a href="#posts">投稿内容の取り扱い</a></li>
+          <li><a href="#contact">まずは質問・ご相談お待ちしております</a></li>
+        </ol>
+      </nav>
+
+      <!-- h2見出し＋本文のセット -->
+      <section class="about-section" aria-labelledby="about-site">
+        <h2 id="about-site">「求人の裏側」とは</h2>
+        <p class="text-block text-measure">初めまして。<br>とある企業で求人・人材サービスの運営に数年携わっているSybabaと申します。</p>
+        <p class="text-block text-measure">「求人の裏側」とは、求人・採用活動を行う採用担当者様や、就職・転職活動を行う求職者様にそれぞれにとって活動に役立つ情報を発信するコンテンツサイトです。<br><br>求人・人材サービスに長年従事していると、「人材を採用したいのになかなか効果が返ってこない」、「採用できてもすぐに離職してしまう」、「前うまくいかなかったからしばらくやめる」といった採用後担当者様のお悩みや、「内定もらえたがミスマッチが後から発覚して辞退した（またはすぐに離職した）」、「よい求人に応募するために事前に知っておきたかった」といった求職者様の声、双方が毎日のように目に入ってきます。</p>
+        <p class="text-block text-measure">求人サービスの運営スタッフとして従事すると、双方の状況が見えたりビジネスの構造も見えるようになっていくため、双方が損をしないために「事前に知っておいてほしいこと」が出てきました。<br><br>このサイトでは、とある企業で求人サービスに従事してきた私の備忘録・情報発信ブログとして、普段なかなか聞けないような【裏側】の話を、自分のペースで発信していけたらと思います。</p>
+      </section>
+
+      <section class="about-section" aria-labelledby="features">
+        <h2 id="features">このサイトでできること</h2>
+        <p class="text-block text-measure">基本的には私（Sybaba）が求人・採用活動・転職活動に関して発信していきたいことをマイペースに記事として執筆していくものになります。</p>
+        <p class="text-block text-measure">一方で、実際に「こういうことが知りたい」「実際はどうなのか」「こういう経験をした」といった実際の生の声をもとに、記事も執筆できたらと考えています。ぜひ『質問する』ボタンから皆様からの質問・ご相談をお待ちしています（匿名回答）。<br><br><b>※本サイトはコンサル会社ではなく個人運営のブログサイトではないため、こちらからご連絡差し上げたりすることはございません。</b></p>
+      </section>
+
+      <section class="about-section" aria-labelledby="manners">
+        <h2 id="manners">ご利用にあたってのお願い</h2>
+        <p class="text-block text-measure">みなさんが安心して閲覧できるように、相手への思いやりを大切にしてください。特定の個人や企業を傷つける投稿、事実と異なる情報の投稿はご遠慮ください。</p>
+      </section>
+
+      <section class="about-section" aria-labelledby="posts">
+        <h2 id="posts">投稿内容の取り扱い</h2>
+        <p class="text-block text-measure">投稿された質問や回答は、サイト運営（Sybaba）の校閲の上、回答を記事コンテンツとしてほかの利用者にも公開されます。個人や具体的な企業様が特定できる情報は書き込まないようご注意ください。</p>
+        <p class="text-block text-measure">個人情報の取り扱いについては、<a href="#">プライバシーポリシー</a>をご確認ください。</p>
+      </section>
+
+      <section class="about-section" aria-labelledby="contact">
+        <h2 id="contact">まずは質問・ご相談お待ちしております</h2>
+        <p class="text-block text-measure">まずは、お気軽に以下フォームからご質問・お悩みの声をお待ちしております。（記事を執筆する種にもなります）。</p>
+        <p class="text-block text-measure"><b>＜こんな方からの声をお待ちしています！＞</b></p>
+        <ul>
+          <li>知りたいこと・お悩みがある採用ご担当者様</li>
+          <li>知りたいこと・お悩みがある求職者様</li>
+          <li>求人・人材サービスにご従事されている方</li>
+        </ul>
+        <p class="about-action"><a class="btn btn--primary btn--md" href="https://forms.gle/PzEfkHMVGTEvMDmk9" target="_blank">相談・質問する</a></p>
+      </section>
+    </main>
+
+    <!-- サイドメニュー(PC: 右カラム / SP: メインコンテンツの下にサブメニューとして表示) -->
+    <aside class="layout__side">
+      <nav class="side-menu" aria-labelledby="side-menu-title">
+        <h3 class="side-menu__title" id="side-menu-title">サイトのご案内</h3>
+        <ul class="side-menu__list">
+          <li><a href="/about/" aria-current="page">このサイトについて</a></li>
+          <li><a href="#">よくある質問</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="https://forms.gle/PzEfkHMVGTEvMDmk9" target="_blank">ご質問・ご相談フォーム</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- ロゴ画像(900×260の比率) -->
+      <a class="site-footer__logo" href="/"><img src="images/logo-wide.png" alt="求人の裏側" width="900" height="260"></a>
+      <ul class="site-footer__links">
+        <li><a href="/about/">このサイトについて</a></li>
+        <li><a href="#">利用規約</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+        <li><a href="https://forms.gle/PzEfkHMVGTEvMDmk9" target="_blank">ご質問・ご相談フォーム</a></li>
+      </ul>
+      <p class="site-footer__copy">&copy; 求人の裏側</p>
+    </div>
+  </footer>
+
+  <script src="js/header.js" defer></script>
+  <script src="js/about.js" defer></script>
+</body>
+</html>

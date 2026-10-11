@@ -1,0 +1,77 @@
+/* ==========================================================
+   Design tokens — デザインガイドライン由来。値はここだけで定義する。
+   ========================================================== */
+:root {
+  /* コンセプトカラー */
+  --color-main: #373737;
+  --color-sub: #FFFFFF;
+  --color-accent: #911116;
+  --color-weak: #666666;
+  --color-link-before: #007390; /* 未訪問リンク */
+  --color-link-after: #00354A;  /* 訪問済みリンク */
+
+  /* メインカラー(黄) */
+  --color-yellow-weak: #FFF5CF;
+  --color-yellow-normal: #FFE588;
+  --color-yellow-strong: #FAC400;
+
+  /* アクセントカラー(赤) */
+  --color-red-weak: #FFF0F1;
+  --color-red-normal: #F4C4C6;
+  --color-red-strong: #911116;
+
+  /* サブカラー(グレー) */
+  --color-gray-weak: #F8F8F8;
+  --color-gray-normal: #EDEDED;
+  --color-gray-strong: #A0A0A0;
+
+  /* フォントカラー */
+  --color-text: #4D4D4D;        /* 文字サイズ見本で使われる本文色 */
+  --color-text-button: #373737; /* primary / default ボタンの文字 */
+  --color-text-on-dark: #FFFFFF;/* secondary ボタンの文字 */
+
+  /* ボタン状態用(ボタン仕様にのみ登場する色) */
+  --color-border: #D0D0D0;
+  --color-btn-secondary: #B03035;
+  --color-btn-primary-hover: #D7A900;
+  --color-btn-default-hover: #F5F5F5;
+  --color-btn-secondary-hover: #870005;
+
+  /* フォント */
+  --font-family: 'BIZ UDPGothic', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* 文字サイズ / 行間(ガイドライン値。行間は1行ぶんのボックス高) */
+  --fs-small: 14px;  --lh-small: 17px;  /* 補足 */
+  --fs-body: 16px;   --lh-body: 19px;   /* 通常テキスト */
+  --fs-h3: 18px;     --lh-h3: 22px;
+  --fs-h2: 24px;     --lh-h2: 29px;
+  --fs-h1: 32px;     --lh-h1: 39px;
+
+  /* ボタン寸法 */
+  --btn-radius: 5px;
+  --btn-sm-fs: 12px; --btn-sm-lh: 15px; --btn-sm-pad: 10px 20px;
+  --btn-md-fs: 16px; --btn-md-lh: 19px; --btn-md-pad: 15px 30px;
+  --btn-lg-fs: 22px; --btn-lg-lh: 27px; --btn-lg-pad: 15px 30px;
+  --btn-gap: 10px;
+  --disabled-opacity: 0.6;
+
+  /* 余白(8px基準) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+
+  /* レイアウト(相談して決定) */
+  --page-max: 1440px;        /* ページの最大幅 */
+  --page-gutter: 24px;       /* 左右の余白(SPは --space-3) */
+  --col-gap: 32px;           /* メインとサイドの間隔 */
+  --header-h: 80px;          /* ヘッダーの高さ(SPは60px) */
+  --header-h-sp: 60px;
+  /* ブレークポイントは 768px の1本。CSS変数は@mediaで使えないため、
+     PC: min-width: 768px / SP: max-width: 767px とリテラルで書く */
+}

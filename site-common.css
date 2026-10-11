@@ -1,0 +1,93 @@
+/* site-common.css — ヘッダー/フッターの共通部品(ロゴ・SPドロワーメニュー)
+   layout.css の後、ページ固有CSSの前に読み込む。色・文字サイズ・余白は var(--...) で参照する */
+
+:root {
+  /* ロゴ画像は 900×260 の比率。高さだけ指定し、幅は比率から自動で決まる */
+  --logo-h: 40px;      /* PCヘッダー */
+  --logo-h-sm: 32px;   /* SPヘッダー・フッター */
+  --drawer-w: 50vw;    /* SPメニューの幅(画面の半分) */
+}
+
+/* ---------- ロゴ ---------- */
+.site-header__logo { display: block; line-height: 0; }
+.site-header__logo img,
+.site-footer__logo img {
+  display: block;
+  width: auto;
+  height: var(--logo-h);
+}
+.site-footer__logo { display: inline-block; margin-bottom: var(--space-4); line-height: 0; }
+.site-footer__logo img { height: var(--logo-h); }
+
+/* ---------- PC ---------- */
+/* 検索欄を無くしたので、「質問する」ボタンを右端に寄せる */
+.site-header__ask { margin-left: auto; }
+.site-header__close,
+.site-overlay { display: none; }
+
+/* ---------- SP(767px以下): 右から出る半分幅のメニュー ---------- */
+@media (max-width: 767px) {
+  .site-header__logo img { height: var(--logo-h-sm); }
+
+  /* ハンバーガーボタン: ヘッダー専用ボタン(btn--header)と同じスタイル */
+  .site-header__toggle.btn--header {
+    padding: var(--btn-sm-pad);
+    border: 1px solid var(--color-main);
+    border-radius: var(--btn-radius);
+    background: var(--color-sub);
+    color: var(--color-text-button);
+    font-size: var(--btn-sm-fs);
+    line-height: var(--btn-sm-lh);
+  }
+  .site-header__toggle.btn--header:hover { background: var(--color-btn-default-hover); }
+
+  /* メニュー本体(閉じている間は画面の外に置き、操作もできない状態にする) */
+  .site-header__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    width: var(--drawer-w);
+    height: 100vh;
+    height: 100dvh;
+    padding: var(--space-3);
+    overflow-y: auto;
+    background: var(--color-sub);
+    border-left: 1px solid var(--color-gray-normal);
+    visibility: hidden;
+    transform: translateX(100%);
+  }
+  .site-header__menu.is-open {
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .site-header__close { display: inline-flex; align-self: flex-end; }
+  .site-nav a { display: block; padding-block: var(--space-2); }
+  .site-header__ask { margin-left: 0; }
+
+  /* メニューの外側(暗くして、押すと閉じる) */
+  .site-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--color-main);
+    opacity: 0;
+    visibility: hidden;
+  }
+  .site-overlay.is-open { opacity: 0.5; visibility: visible; }
+
+  /* メニューを開いている間は、後ろのページをスクロールさせない */
+  body.is-menu-open { overflow: hidden; }
+}
+
+/* 動きを減らす設定の人にはアニメーションを付けない */
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .site-header__menu { transition: transform 0.25s ease, visibility 0.25s; }
+  .site-overlay { transition: opacity 0.25s ease, visibility 0.25s; }
+}

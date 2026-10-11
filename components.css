@@ -1,0 +1,81 @@
+/* components.css — tokens.css の後に読み込む */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-sub);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+}
+
+/* 見出し・テキスト */
+h1, h2, h3 { margin: 0; font-weight: var(--fw-bold); color: var(--color-text); }
+h1 { font-size: var(--fs-h1); line-height: var(--lh-h1); }
+h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); }
+.text-small { font-size: var(--fs-small); line-height: var(--lh-small); }
+.text-body  { font-size: var(--fs-body);  line-height: var(--lh-body); }
+/* 複数行の段落用(日本語で詰まらないよう行間を広げる) */
+.text-block { line-height: 1.8; }
+.text-weak  { color: var(--color-weak); }
+
+/* リンク */
+a:link    { color: var(--color-link-before); }
+a:visited { color: var(--color-link-after); }
+a:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--color-link-before);
+  outline-offset: 2px;
+}
+
+/* ボタン */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--btn-gap);
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+  font-family: inherit;
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-text-button);
+  font-size: var(--btn-md-fs);
+  line-height: var(--btn-md-lh);
+  padding: var(--btn-md-pad);
+}
+.btn:link, .btn:visited { color: var(--color-text-button); }
+
+/* 大きさ */
+.btn--sm { font-size: var(--btn-sm-fs); line-height: var(--btn-sm-lh); padding: var(--btn-sm-pad); }
+.btn--md { font-size: var(--btn-md-fs); line-height: var(--btn-md-lh); padding: var(--btn-md-pad); }
+.btn--lg { font-size: var(--btn-lg-fs); line-height: var(--btn-lg-lh); padding: var(--btn-lg-pad); }
+
+/* 種類 */
+.btn--primary { background: var(--color-yellow-strong); }
+.btn--primary:hover { background: var(--color-btn-primary-hover); }
+
+.btn--default { background: var(--color-sub); border-color: var(--color-border); }
+.btn--default:hover { background: var(--color-btn-default-hover); }
+
+.btn--secondary,
+.btn--secondary:link, .btn--secondary:visited { background: var(--color-btn-secondary); color: var(--color-text-on-dark); }
+.btn--secondary:hover { background: var(--color-btn-secondary-hover); }
+
+/* ヘッダー用(黄色背景の上で使う。白背景+#373737の枠) */
+.btn--header { background: var(--color-sub); border-color: var(--color-main); }
+.btn--header:hover { background: var(--color-btn-default-hover); }
+
+/* 無効(hoverで色を変えない) */
+.btn:disabled, .btn[aria-disabled="true"], .btn.is-disabled {
+  opacity: var(--disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.btn--primary:disabled, .btn--primary[aria-disabled="true"], .btn--primary.is-disabled { background: var(--color-yellow-strong); }
+.btn--default:disabled, .btn--default[aria-disabled="true"], .btn--default.is-disabled { background: var(--color-sub); }
+.btn--secondary:disabled, .btn--secondary[aria-disabled="true"], .btn--secondary.is-disabled { background: var(--color-btn-secondary); }
+.btn--header:disabled, .btn--header[aria-disabled="true"], .btn--header.is-disabled { background: var(--color-sub); }
