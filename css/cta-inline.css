@@ -1,0 +1,69 @@
+/* cta-inline.css — 中間CTA(記事内・ページ内に差し込む「ご質問・ご相談はこちら」)
+   読み込み順: tokens.css → components.css → layout.css → site-common.css → cta-inline.css
+   色・文字サイズは必ず var(--...) で参照する。 */
+
+.cta-inline {
+  /* ガイドライン未定義の値(ここだけで管理) */
+  --cta-radius: 16px;        /* 緩やかな丸み */
+  --cta-border-width: 2px;
+
+  margin-block: var(--space-6);
+  padding: var(--space-5);
+  border: var(--cta-border-width) solid var(--color-yellow-strong);
+  border-radius: var(--cta-radius);
+  background: var(--color-sub);
+  text-align: center;
+}
+
+/* 見出し(太字はh1〜h3の共通指定。h2/h3どちらのタグでも見た目は同じ) */
+.cta-inline__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-bold);
+}
+
+/* マーカー装飾: 文字の下半分に黄色の帯。折り返しても各行に引かれる */
+.cta-inline__marker {
+  padding-inline: var(--space-1);
+  background: linear-gradient(transparent 50%, var(--color-yellow-normal) 50%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* 説明書き・注意書き: 読みやすさのため左揃え・行長を制限して中央に置く */
+.cta-inline__text,
+.cta-inline__note {
+  max-width: 45em;
+  margin-inline: auto;
+  text-align: left;
+}
+.cta-inline__text { margin-block: 0 var(--space-3); }
+.cta-inline__note { margin-block: 0 var(--space-4); }
+
+/* ボタン上の促進文言 */
+.cta-inline__lead {
+  margin: 0 0 var(--space-3);
+  color: var(--color-accent);
+  font-weight: var(--fw-bold);
+}
+
+.cta-inline__action { margin: 0; }
+.cta-inline__btn { max-width: 100%; }
+
+/* ---------- SP(767px以下) ---------- */
+@media (max-width: 767px) {
+  .cta-inline {
+    margin-block: var(--space-5);
+    padding: var(--space-4) var(--space-3);
+  }
+  .cta-inline__title { margin-bottom: var(--space-3); }
+
+  /* lgだとボタンが画面幅に収まらないため、SPはmdの寸法にして横幅いっぱいにする */
+  .cta-inline__btn {
+    width: 100%;
+    font-size: var(--btn-md-fs);
+    line-height: var(--btn-md-lh);
+    padding: var(--btn-md-pad);
+  }
+}
