@@ -18,8 +18,7 @@
 }
 .layout__main, .layout__side { min-width: 0; }
 
-/* 読みやすい行長が必要な本文用(任意) */
-.text-measure { max-width: 45em; }
+.text-measure { max-width: 100%; }
 
 /* ---------- ヘッダー(背景: 黄 strong) ---------- */
 .site-header {
