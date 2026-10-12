@@ -16,8 +16,8 @@
   align-items: start;
   padding-block: var(--space-5);
 }
-.layout__main, .layout__side { min-width: 0; }
 
+.layout__main, .layout__side { min-width: 0; }
 .text-measure { max-width: 100%; }
 
 /* ---------- ヘッダー(背景: 黄 strong) ---------- */
