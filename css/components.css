@@ -43,6 +43,10 @@ a:focus-visible, .btn:focus-visible {
   text-decoration: none;
   cursor: pointer;
   color: var(--color-text-button);
+  transition:
+    background-color var(--btn-duration) var(--btn-ease),
+    box-shadow var(--btn-duration) var(--btn-ease),
+    transform var(--btn-duration) var(--btn-ease);
   font-size: var(--btn-md-fs);
   line-height: var(--btn-md-lh);
   padding: var(--btn-md-pad);
@@ -55,27 +59,80 @@ a:focus-visible, .btn:focus-visible {
 .btn--lg { font-size: var(--btn-lg-fs); line-height: var(--btn-lg-lh); padding: var(--btn-lg-pad); }
 
 /* 種類 */
-.btn--primary { background: var(--color-yellow-strong); }
-.btn--primary:hover { background: var(--color-btn-primary-hover); }
+/* primary(赤)/ secondary(青): 白文字+右に白丸の矢印+影。hoverは色が濃くなり影が消える */
+.btn--primary, .btn--primary:link, .btn--primary:visited,
+.btn--secondary, .btn--secondary:link, .btn--secondary:visited {
+  border: 0;
+  gap: var(--btn-gap-arrow);
+  color: var(--color-text-on-dark);
+  box-shadow: var(--btn-shadow);
+}
+.btn--lg.btn--primary, .btn--lg.btn--secondary { gap: var(--btn-gap-arrow-lg); }
 
-.btn--default { background: var(--color-sub); border-color: var(--color-border); }
-.btn--default:hover { background: var(--color-btn-default-hover); }
+.btn--primary { background: var(--color-btn-primary); }
+.btn--primary:hover { background: var(--color-btn-primary-hover); box-shadow: none; transform: translate(var(--btn-shadow-offset), var(--btn-shadow-offset)); }
 
-.btn--secondary,
-.btn--secondary:link, .btn--secondary:visited { background: var(--color-btn-secondary); color: var(--color-text-on-dark); }
-.btn--secondary:hover { background: var(--color-btn-secondary-hover); }
+.btn--secondary { background: var(--color-btn-secondary); }
+.btn--secondary:hover { background: var(--color-btn-secondary-hover); box-shadow: none; transform: translate(var(--btn-shadow-offset), var(--btn-shadow-offset)); }
+
+/* default(白+#373737の枠+影) */
+.btn--default { background: var(--color-sub); border-color: var(--color-main); box-shadow: var(--btn-shadow); }
+.btn--default:hover { background: var(--color-btn-default-hover); box-shadow: none; transform: translate(var(--btn-shadow-offset), var(--btn-shadow-offset)); }
+
+/* 矢印アイコン(primary / secondary の文字のあとに置く。色はボタンの背景色に合わせる) */
+.btn__arrow {
+  --arrow-size: var(--btn-arrow-size);
+  position: relative;
+  flex: none;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  border-radius: 50%;
+  background: var(--color-sub);
+  transition: color var(--btn-duration) var(--btn-ease);
+}
+.btn--lg .btn__arrow { --arrow-size: var(--btn-arrow-size-lg); }
+.btn__arrow::before, .btn__arrow::after { content: ""; position: absolute; }
+/* 線 */
+.btn__arrow::before {
+  left: 50%;
+  top: 50%;
+  width: var(--btn-arrow-line);
+  height: 0;
+  border-top: var(--btn-arrow-weight) solid currentColor;
+  transform: translate(-50%, -50%);
+}
+/* 矢じり(先端が線の右端に合うように置く) */
+.btn__arrow::after {
+  left: calc(50% + var(--btn-arrow-line) / 2 - var(--btn-arrow-head) * 1.2071);
+  top: calc(50% - var(--btn-arrow-head) / 2);
+  width: var(--btn-arrow-head);
+  height: var(--btn-arrow-head);
+  border-top: var(--btn-arrow-weight) solid currentColor;
+  border-right: var(--btn-arrow-weight) solid currentColor;
+  transform: rotate(45deg);
+}
+.btn--primary .btn__arrow { color: var(--color-btn-primary); }
+.btn--primary:hover .btn__arrow { color: var(--color-btn-primary-hover); }
+.btn--secondary .btn__arrow { color: var(--color-btn-secondary); }
+.btn--secondary:hover .btn__arrow { color: var(--color-btn-secondary-hover); }
 
 /* ヘッダー用(黄色背景の上で使う。白背景+#373737の枠) */
 .btn--header { background: var(--color-sub); border-color: var(--color-main); }
 .btn--header:hover { background: var(--color-btn-default-hover); }
 
-/* 無効(hoverで色を変えない) */
+/* 動きを減らす設定の人には、hoverの動きを付けない(色の変化だけ残す) */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn__arrow { transition: none; }
+  .btn--primary:hover, .btn--secondary:hover, .btn--default:hover { transform: none; }
+}
+
+/* 無効(hoverで色を変えない。影は残す) */
 .btn:disabled, .btn[aria-disabled="true"], .btn.is-disabled {
   opacity: var(--disabled-opacity);
   cursor: not-allowed;
   pointer-events: none;
 }
-.btn--primary:disabled, .btn--primary[aria-disabled="true"], .btn--primary.is-disabled { background: var(--color-yellow-strong); }
+.btn--primary:disabled, .btn--primary[aria-disabled="true"], .btn--primary.is-disabled { background: var(--color-btn-primary); }
 .btn--default:disabled, .btn--default[aria-disabled="true"], .btn--default.is-disabled { background: var(--color-sub); }
 .btn--secondary:disabled, .btn--secondary[aria-disabled="true"], .btn--secondary.is-disabled { background: var(--color-btn-secondary); }
 .btn--header:disabled, .btn--header[aria-disabled="true"], .btn--header.is-disabled { background: var(--color-sub); }
