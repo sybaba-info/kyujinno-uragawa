@@ -52,13 +52,10 @@
       <h1>記事を探す</h1>
       <p class="text-block text-measure articles-lead">求人・採用活動、就職・転職活動の「裏側」に関する記事の一覧です。新しい記事から順に並んでいます。</p>
 
-      <!-- 記事カード一覧。新しい記事は先頭に追加する。
-           1記事 = <li>〜</li> のまとまり。href・画像・カテゴリ・タイトル・日付(datetime も)・抜粋(記事のリード文)を書き換える。
-           ※2件目以降はダミー(リンク先は仮で 1.html) -->
       <ul class="article-list">
-        <!-- ▼ 記事カードのテンプレート(ここから) ▼ -->
+        <!-- ▼ 記事カード(ここから) ▼ -->
           <li>
-            <a class="article-card__link" href="articles/detail/1.html">
+            <a class="article-card__link" href="articles/1.html">
               <img class="article-card__img" src="images/article/placeholder.svg" alt="" width="1200" height="675" loading="lazy">
               <div class="article-card__body">
                 <ul class="article-card__tags" aria-label="カテゴリ">
@@ -70,9 +67,9 @@
               </div>
             </a>
           </li>
-        <!-- ▲ 記事カードのテンプレート(ここまで) ▲ -->
+        <!-- ▲ 記事カード(ここまで) ▲ -->
           <li>
-            <a class="article-card__link" href="articles/detail/1.html">
+            <a class="article-card__link" href="articles/1.html">
               <img class="article-card__img" src="images/article/placeholder.svg" alt="" width="1200" height="675" loading="lazy">
               <div class="article-card__body">
                 <ul class="article-card__tags" aria-label="カテゴリ">
@@ -84,33 +81,7 @@
               </div>
             </a>
           </li>
-          <li>
-            <a class="article-card__link" href="articles/detail/1.html">
-              <img class="article-card__img" src="images/article/placeholder.svg" alt="" width="1200" height="675" loading="lazy">
-              <div class="article-card__body">
-                <ul class="article-card__tags" aria-label="カテゴリ">
-                <li class="article-card__tag text-small">採用担当者向け</li>
-                <li class="article-card__tag text-small">求職者向け</li>
-                </ul>
-                <h2 class="article-card__title">記事タイトルが入ります（ダミー）。長いタイトルの場合は折り返して表示されます</h2>
-                <p class="article-card__date text-small text-weak">公開日: <time datetime="2026-09-28">2026.09.28</time></p>
-                <p class="article-card__excerpt text-small">リード文が入ります。ダミーテキストです。ダミーテキストです。</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="article-card__link" href="articles/detail/1.html">
-              <img class="article-card__img" src="images/article/placeholder.svg" alt="" width="1200" height="675" loading="lazy">
-              <div class="article-card__body">
-                <ul class="article-card__tags" aria-label="カテゴリ">
-                <li class="article-card__tag text-small">求職者向け</li>
-                </ul>
-                <h2 class="article-card__title">記事タイトルが入ります（ダミー）</h2>
-                <p class="article-card__date text-small text-weak">公開日: <time datetime="2026-09-21">2026.09.21</time></p>
-                <p class="article-card__excerpt text-small">リード文が入ります。ダミーテキストです。ダミーテキストです。ダミーテキストです。</p>
-              </div>
-            </a>
-          </li>
+
       </ul>
     </main>
 
