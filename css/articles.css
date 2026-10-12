@@ -1,0 +1,124 @@
+/* articles.css — 記事一覧ページ固有。色・文字サイズ・余白は必ず var(--...) で参照する */
+
+/* ---------- リード文 ---------- */
+.articles-lead { margin: var(--space-3) 0 0; }
+
+/* ---------- 記事カード一覧(PC: 2列 / SP: 1列) ---------- */
+.article-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .article-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* カード全体を1つのリンクにする */
+.article-card__link:link,
+.article-card__link:visited {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-main);
+  border-radius: var(--btn-radius);
+  overflow: hidden;
+  background: var(--color-sub);
+  color: var(--color-text);
+  text-decoration: none;
+  /* ボタン(default)と同じ影で浮かせ、hoverで影の分だけ沈める */
+  box-shadow: var(--btn-shadow);
+  transition:
+    box-shadow var(--btn-duration) var(--btn-ease),
+    transform var(--btn-duration) var(--btn-ease);
+}
+.article-card__link:hover {
+  background: var(--color-gray-weak);
+  box-shadow: none;
+  transform: translate(var(--btn-shadow-offset), var(--btn-shadow-offset));
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-card__link { transition: none; }
+}
+.article-card__link:link .article-card__title { color: var(--color-link-before); }
+.article-card__link:visited .article-card__title { color: var(--color-link-after); }
+.article-card__link:hover .article-card__title { text-decoration: underline; }
+
+.article-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.article-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+/* カテゴリタグ(表示のみ。絞り込みはしない) */
+.article-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.article-card__tag {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--btn-radius);
+  background: var(--color-yellow-weak);
+  color: var(--color-main);
+}
+
+.article-card__title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  line-height: 1.5;
+}
+.article-card__date { margin: 0; }
+.article-card__excerpt {
+  margin: 0;
+  line-height: 1.8;
+  /* 3行で省略 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- サイドメニュー / SPサブメニュー ---------- */
+.side-menu {
+  border: 1px solid var(--color-gray-normal);
+  border-radius: var(--btn-radius);
+  overflow: hidden;
+}
+.side-menu__title {
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--color-gray-weak);
+}
+.side-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.side-menu__list li { border-top: 1px solid var(--color-gray-normal); }
+.side-menu__list a:link,
+.side-menu__list a:visited {
+  display: block;
+  padding: var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.side-menu__list a:hover { background: var(--color-gray-weak); }
+.side-menu__list a[aria-current="page"] {
+  background: var(--color-yellow-weak);
+  font-weight: var(--fw-bold);
+}

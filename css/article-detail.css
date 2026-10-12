@@ -1,0 +1,82 @@
+/* article-detail.css — 記事詳細ページ固有。色・文字サイズ・余白は必ず var(--...) で参照する */
+
+/* アンカー移動をなめらかに(動きを減らす設定の人にはオフ) */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ---------- リード文 ---------- */
+.article-lead { margin: var(--space-3) 0 0; }
+
+/* ---------- 目次 ---------- */
+.toc {
+  margin-block: var(--space-4) var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-gray-weak);
+  border: 1px solid var(--color-gray-normal);
+  border-radius: var(--btn-radius);
+}
+.toc__title {
+  margin: 0 0 var(--space-3);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+.toc__list {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+.toc__list li + li { margin-top: var(--space-2); }
+
+/* ---------- 本文(h2＋本文＋画像のセット) ---------- */
+.article-section + .article-section { margin-top: var(--space-6); }
+.article-section h2 {
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-yellow-strong);
+}
+.article-section h2 + p { margin-top: var(--space-4); }
+.article-section p { margin-block: 0; }
+.article-section p + p { margin-top: var(--space-3); }
+
+/* 画像 */
+.article-figure {
+  max-width: 45em; /* 本文(.text-measure)と同じ幅にそろえる */
+  margin: var(--space-4) 0;
+}
+.article-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--btn-radius);
+}
+.article-figure figcaption { margin-top: var(--space-2); }
+.article-figure + p { margin-top: 0; }
+
+/* ---------- サイドメニュー / SPサブメニュー ---------- */
+.side-menu {
+  border: 1px solid var(--color-gray-normal);
+  border-radius: var(--btn-radius);
+  overflow: hidden;
+}
+.side-menu__title {
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--color-gray-weak);
+}
+.side-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.side-menu__list li { border-top: 1px solid var(--color-gray-normal); }
+.side-menu__list a:link,
+.side-menu__list a:visited {
+  display: block;
+  padding: var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.side-menu__list a:hover { background: var(--color-gray-weak); }
+.side-menu__list a[aria-current="page"] {
+  background: var(--color-yellow-weak);
+  font-weight: var(--fw-bold);
+}
